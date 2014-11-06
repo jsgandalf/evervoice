@@ -1,0 +1,33 @@
+$visual_grid: true;
+
+@import "bourbon/bourbon";
+@import "neat/neat";
+@import "base/base";
+
+
+@include font-face(Open Sans, 'http://fonts.googleapis.com/css?family=Open+Sans:300');
+
+.container {
+  @include outer-container;
+  font-family: 'Open Sans', sans-serif;
+
+}
+
+.header {
+  font-size: 3em;
+  text-align: center;
+}
+
+.p1 {
+  @include span-columns(7);
+  @include padding(10px null 10px null);
+  @include shift(2.5);
+}
+
+.button {
+  text-align: center;
+  @include padding(10px);
+}
+
+
+
