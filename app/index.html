@@ -20,23 +20,15 @@
 
 
 
-  <body ng-app="evervoiceApp" >
-
-  <div class="container" ng-controller="MainCtrl">
-
-    <div class="header">
-      Test Title
-    </div>
+  <body ng-app="evervoiceApp">
 
         <div class="p1">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vel fringilla mi. Morbi congue hendrerit odio, ac aliquam nisi auctor sed. Quisque non dui neque. Aenean a justo nibh. Ut aliquam efficitur est, at finibus erat lacinia ut. Suspendisse in lorem ligula. Suspendisse in quam quis justo hendrerit blandit vel at turpis. Cras accumsan mi in imperdiet aliquam. Proin egestas, metus semper suscipit rhoncus, elit enim dictum dui, quis gravida orci enim vitae leo. Quisque tincidunt massa vitae pharetra blandit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce cursus pellentesque metus nec fermentum. Phasellus nec hendrerit arcu.
-
+          Lorem ipsum dolor sit amet
         </div>
 
+        <record-voice record="record"><button>Click Me</button></record-voice>
 
-    <textarea></textarea>
 
-  </div>
 
 
     <!-- build:js(.) scripts/oldieshim.js -->
@@ -49,12 +41,13 @@
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/annyang/annyang.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
-
     <!-- endbower -->
     <!-- endbuild -->
+    <script src="bower_components/annyang/annyang.js"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
