@@ -22,12 +22,18 @@
 
   <body ng-app="evervoiceApp">
 
-        <div class="p1">
+        <div class="p1" ng-controller="myCtrl">
           Lorem ipsum dolor sit amet
         </div>
 
-        <record-voice record="record"><button>Click Me</button></record-voice>
+        <div>
+          <a href="#" id="start_button" onclick="startDictation(event)">Dictate</a>
+        </div>
 
+        <div id="results">
+          <span id="final_span" class="final"></span>
+          <span id="interim_span" class="interim"></span>
+        </div>
 
 
 

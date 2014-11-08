@@ -21,15 +21,12 @@ $visual_grid: true;
 }
 
 .p1 {
-  @include span-columns(7);
+  text-align: center;
   @include padding(30px null 30px null);
-  @include shift(2.5);
-
+  @include column-span(10);
 }
 
-textarea {
-  @include span-columns(8);
-  @include shift(2);
-}
+
+
 
 
