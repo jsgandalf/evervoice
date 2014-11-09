@@ -26,7 +26,16 @@ $visual_grid: true;
   @include column-span(10);
 }
 
+.text-button {
+  @inclue column-span(7);
+  @include padding(30px null 30px null);
+  text-align: center;
+}
 
+#input {
+  @inclue column-span(7);
+
+}
 
 
 

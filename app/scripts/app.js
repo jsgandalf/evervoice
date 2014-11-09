@@ -24,72 +24,49 @@ var evervoice = angular
 
 //}]);
 
-evervoice.controller('myCtrl', function($scope, myService) {
+evervoice.controller('myCtrl', function($scope) {
 
-console.log(myService);
+  $scope.recognizing = false;
 
-});
+  $scope.startRecognition = function(){
+    if(!window.webkitSpeechRecognition){
+      alert('Try using Google Chrome.');
+    } else {
 
-evervoice.service('myService', function() {
+      var recognition = new webkitSpeechRecognition();
+      $scope.recognizing = true;
+      recognition.lang = ['English', ['en-US', 'United States']];
+      recognition.continuous = true;
+      recognition.interimResults = true;
 
-  var final_transcript = '';
-  var recognizing = false;
+      recognition.onstart = function(e){
+        console.log('Recognizing speech...');
+      };
 
-  if ('webkitSpeechRecognition' in window) {
+      recognition.onspeechend = function(e){
+        console.log('Speech processed.');
+        $scope.recognizing = false;
+      };
 
-    var recognition = new webkitSpeechRecognition();
-
-    this.continuous = true;
-    this.interimResults = true;
-
-    this.onstart = function() {
-      recognizing = true;
-    };
-
-    this.onerror = function(event) {
-      console.log(event.error);
-    };
-
-    this.onend = function() {
-      recognizing = false;
-    };
-
-    this.onresult = function(event) {
-      var interim_transcript = '';
-      for (var i = event.resultIndex; i < event.results.length; ++i) {
-        if (event.results[i].isFinal) {
-          final_transcript += event.results[i][0].transcript;
-        } else {
-          interim_transcript += event.results[i][0].transcript;
+      recognition.onresult = function(e){
+        var interimTranscript = '';
+        if (e.results.length) {
+          for (var i = e.resultIndex; i < e.results.length; i++) {
+            interimTranscript = e.results[i][0].transcript;
+            console.log('Transcript: ', interimTranscript);
+          }
         }
-      }
-      final_transcript = capitalize(final_transcript);
-      final_span.innerHTML = linebreak(final_transcript);
-      interim_span.innerHTML = linebreak(interim_transcript);
 
-    };
-    }
+        $scope.$apply($scope.search = interimTranscript);
 
-    var two_line = /\n\n/g;
-    var one_line = /\n/g;
-    function linebreak(s) {
-      return s.replace(two_line, '<p></p>').replace(one_line, '<br>');
-    }
+      };
 
-    function capitalize(s) {
-      return s.replace(s.substr(0,1), function(m) { return m.toUpperCase(); });
-    }
-
-    function startDictation(event) {
-      if (recognizing) {
-        recognition.stop();
-        return;
-      }
-      final_transcript = '';
-      recognition.lang = 'en-US';
       recognition.start();
-      final_span.innerHTML = '';
-      interim_span.innerHTML = '';
+      console.log('firing start');
     }
+  };
 
 });
+
+
+

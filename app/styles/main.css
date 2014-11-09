@@ -288,4 +288,13 @@ input[type="submit"] {
   -moz-column-span: 10;
   column-span: 10; }
 
+.text-button {
+  @inclue column-span(7);
+  padding-top: 30px;
+  padding-bottom: 30px;
+  text-align: center; }
+
+#input {
+  @inclue column-span(7); }
+
 /*# sourceMappingURL=main.css.map */

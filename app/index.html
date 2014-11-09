@@ -20,20 +20,17 @@
 
 
 
-  <body ng-app="evervoiceApp">
+  <body ng-app="evervoiceApp" ng-controller="myCtrl">
 
-        <div class="p1" ng-controller="myCtrl">
-          Lorem ipsum dolor sit amet
+        <div class="p1">
+          Lorem ipsum dolor sit amet blah blah blah blah blah blah
         </div>
 
-        <div>
-          <a href="#" id="start_button" onclick="startDictation(event)">Dictate</a>
+        <div class="text-button">
+          <input type="text" ng-model="search" />
+          <button ng-click="startRecognition()">Dictate</button>
         </div>
 
-        <div id="results">
-          <span id="final_span" class="final"></span>
-          <span id="interim_span" class="interim"></span>
-        </div>
 
 
 
