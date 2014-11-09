@@ -26,7 +26,7 @@ $visual_grid: true;
 
     #{$all-text-inputs} {
       border: 1px solid green;
-      @include size(auto 100px);
+      @include size(auto 120px);
       @include span-columns(7);
       @include shift(2.5);
     }

@@ -302,7 +302,7 @@ input[type="submit"] {
       margin-right: 0; }
     .container .text-button input[type="email"], .container .text-button input[type="number"], .container .text-button input[type="password"], .container .text-button input[type="search"], .container .text-button input[type="tel"], .container .text-button input[type="text"], .container .text-button input[type="url"], .container .text-button input[type="color"], .container .text-button input[type="date"], .container .text-button input[type="datetime"], .container .text-button input[type="datetime-local"], .container .text-button input[type="month"], .container .text-button input[type="time"], .container .text-button input[type="week"] {
       border: 1px solid green;
-      height: 100px;
+      height: 120px;
       width: auto;
       float: left;
       display: block;

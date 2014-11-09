@@ -5,33 +5,25 @@ var evervoice = angular
     'ngSanitize'
   ]);
 
-//evervoice.controller('CommandCtrl', ['$scope', function($scope) {
-
-  //var commands = {
-    //  'new note': function() {
-      //  console.log('new note activated');
-     // },
-    //  'save note': function() {
-      //  console.log('save note activated');
-     // },
-   //   'what *term do you like': function() {
-    //    alert('Whatever you like!');
-   //   }
-  //};
-
-  //annyang.addCommands(commands);
-  //annyang.start();
-
-//}]);
 
 evervoice.controller('myCtrl', function($scope) {
 
-  $scope.recognizing = false;
+  var commands = {
+
+    'new note': function() {
+      $scope.startRecognition();
+      console.log('new note activated');
+    },
+    'save note': function() {
+      console.log('save note activated');
+    }
+  };
+
+  annyang.addCommands(commands);
+  annyang.start();
+
 
   $scope.startRecognition = function(){
-    if(!window.webkitSpeechRecognition){
-      alert('Try using Google Chrome.');
-    } else {
 
       var recognition = new webkitSpeechRecognition();
       $scope.recognizing = true;
@@ -57,14 +49,12 @@ evervoice.controller('myCtrl', function($scope) {
           }
         }
 
-        $scope.$apply($scope.search = interimTranscript);
+        $scope.interimTranscript;
 
       };
-
       recognition.start();
       console.log('firing start');
-    }
-  };
+    };
 
 });
 
