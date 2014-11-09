@@ -275,26 +275,49 @@ input[type="submit"] {
     content: "";
     display: table;
     clear: both; }
-
-.header {
-  font-size: 3em;
-  text-align: center; }
-
-.p1 {
-  text-align: center;
-  padding-top: 30px;
-  padding-bottom: 30px;
-  -webkit-column-span: 10;
-  -moz-column-span: 10;
-  column-span: 10; }
-
-.text-button {
-  @inclue column-span(7);
-  padding-top: 30px;
-  padding-bottom: 30px;
-  text-align: center; }
-
-#input {
-  @inclue column-span(7); }
+  .container .p1 {
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 31.76157%;
+    margin-left: 34.11922%; }
+    .container .p1:last-child {
+      margin-right: 0; }
+  .container .text-button {
+    max-width: 68em;
+    margin-left: auto;
+    margin-right: auto;
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 100%; }
+    .container .text-button:after {
+      content: "";
+      display: table;
+      clear: both; }
+    .container .text-button:last-child {
+      margin-right: 0; }
+    .container .text-button input[type="email"], .container .text-button input[type="number"], .container .text-button input[type="password"], .container .text-button input[type="search"], .container .text-button input[type="tel"], .container .text-button input[type="text"], .container .text-button input[type="url"], .container .text-button input[type="color"], .container .text-button input[type="date"], .container .text-button input[type="datetime"], .container .text-button input[type="datetime-local"], .container .text-button input[type="month"], .container .text-button input[type="time"], .container .text-button input[type="week"] {
+      border: 1px solid green;
+      height: 100px;
+      width: auto;
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 57.35098%;
+      margin-left: 21.32451%; }
+      .container .text-button input[type="email"]:last-child, .container .text-button input[type="number"]:last-child, .container .text-button input[type="password"]:last-child, .container .text-button input[type="search"]:last-child, .container .text-button input[type="tel"]:last-child, .container .text-button input[type="text"]:last-child, .container .text-button input[type="url"]:last-child, .container .text-button input[type="color"]:last-child, .container .text-button input[type="date"]:last-child, .container .text-button input[type="datetime"]:last-child, .container .text-button input[type="datetime-local"]:last-child, .container .text-button input[type="month"]:last-child, .container .text-button input[type="time"]:last-child, .container .text-button input[type="week"]:last-child {
+        margin-right: 0; }
+    .container .text-button button {
+      margin-left: 42.64902%;
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 14.70196%; }
+      .container .text-button button:last-child {
+        margin-right: 0; }
 
 /*# sourceMappingURL=main.css.map */

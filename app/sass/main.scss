@@ -12,28 +12,30 @@ $visual_grid: true;
 .container {
   @include outer-container;
   font-family: 'Open Sans', sans-serif;
-}
 
-.header {
-  font-size: 3em;
-  text-align: center;
+  .p1 {
+    text-align: center;
+    @include padding(30px null 30px null);
+    @include span-columns(4);
+    @include shift(4);
+  }
 
-}
+  .text-button {
+    @include outer-container;
+    @include span-columns(12);
 
-.p1 {
-  text-align: center;
-  @include padding(30px null 30px null);
-  @include column-span(10);
-}
+    #{$all-text-inputs} {
+      border: 1px solid green;
+      @include size(auto 100px);
+      @include span-columns(7);
+      @include shift(2.5);
+    }
 
-.text-button {
-  @inclue column-span(7);
-  @include padding(30px null 30px null);
-  text-align: center;
-}
-
-#input {
-  @inclue column-span(7);
+    button {
+      @include shift(5);
+      @include span-columns(2);
+    }
+  }
 
 }
 
