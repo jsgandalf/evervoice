@@ -8,7 +8,6 @@ var evervoice = angular
 
 evervoice.controller('myCtrl', function($scope) {
 
-
   $scope.startRecognition = function(){
 
     var recognition = new webkitSpeechRecognition();

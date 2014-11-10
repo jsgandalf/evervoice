@@ -1,4 +1,4 @@
-$visual_grid: false;
+$visual_grid: true;
 
 @import "bourbon/bourbon";
 @import "neat/neat";
@@ -19,7 +19,7 @@ $visual_grid: false;
     @include shift(4);
   }
 
-  .text-buttons {
+  .textarea {
     @include outer-container;
     @include span-columns(12);
 
@@ -30,13 +30,25 @@ $visual_grid: false;
       @include shift(2.5);
       @include padding(null null 20px null);
     }
+  }
+
+  .text-buttons {
+    @include outer-container;
+    @include span-columns(12);
 
     button {
-      @include shift(5);
-      @include span-columns(2);
+      @include span-columns(1.5);
 
+      .button1 {
+        @include shift(7);
+      }
+
+      .button2 {
+        @include shift(4);
+      }
     }
   }
+
 
 }
 

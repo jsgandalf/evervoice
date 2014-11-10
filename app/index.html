@@ -27,11 +27,14 @@
           Lorem ipsum dolor sit amet blah blah blah blah blah blah
         </div>
 
-        <div class="text-buttons">
-          <input type="text" ng-model="interimTranscript" rows="2" cols="20" wrap="hard" />
-          <button  ng-click="startRecognition()">Dictate</button>
-
+        <div class="textarea">
+          <textarea class="speech-box" ng-model="interimTranscript"></textarea>
         </div>
+      <div class="text-buttons">
+          <button class="button2" ng-click="startRecognition()">Dictate</button>
+          <button class="button1" ng-click="">Evernote</button>
+      </div>
+
 
     </div>
 
