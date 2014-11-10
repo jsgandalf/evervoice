@@ -281,7 +281,7 @@ input[type="submit"] {
       clear: both; }
     .container .text-buttons:last-child {
       margin-right: 0; }
-    .container .text-buttons input[type="email"], .container .text-buttons input[type="number"], .container .text-buttons input[type="password"], .container .text-buttons input[type="search"], .container .text-buttons input[type="tel"], .container .text-buttons input[type="text"], .container .text-buttons input[type="url"], .container .text-buttons input[type="color"], .container .text-buttons input[type="date"], .container .text-buttons input[type="datetime"], .container .text-buttons input[type="datetime-local"], .container .text-buttons input[type="month"], .container .text-buttons input[type="time"], .container .text-buttons input[type="week"] {
+    .container .text-buttons .speech-box {
       border: 1px solid green;
       height: 120px;
       width: auto;
@@ -289,8 +289,9 @@ input[type="submit"] {
       display: block;
       margin-right: 2.35765%;
       width: 57.35098%;
-      margin-left: 21.32451%; }
-      .container .text-buttons input[type="email"]:last-child, .container .text-buttons input[type="number"]:last-child, .container .text-buttons input[type="password"]:last-child, .container .text-buttons input[type="search"]:last-child, .container .text-buttons input[type="tel"]:last-child, .container .text-buttons input[type="text"]:last-child, .container .text-buttons input[type="url"]:last-child, .container .text-buttons input[type="color"]:last-child, .container .text-buttons input[type="date"]:last-child, .container .text-buttons input[type="datetime"]:last-child, .container .text-buttons input[type="datetime-local"]:last-child, .container .text-buttons input[type="month"]:last-child, .container .text-buttons input[type="time"]:last-child, .container .text-buttons input[type="week"]:last-child {
+      margin-left: 21.32451%;
+      padding-bottom: 20px; }
+      .container .text-buttons .speech-box:last-child {
         margin-right: 0; }
     .container .text-buttons button {
       margin-left: 42.64902%;

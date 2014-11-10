@@ -36,7 +36,6 @@ evervoice.controller('myCtrl', function($scope) {
     };
     recognition.start();
   }
-
 });
 
 

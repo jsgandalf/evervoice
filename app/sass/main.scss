@@ -23,11 +23,12 @@ $visual_grid: false;
     @include outer-container;
     @include span-columns(12);
 
-    #{$all-text-inputs} {
+    .speech-box {
       border: 1px solid green;
       @include size(auto 120px);
       @include span-columns(7);
       @include shift(2.5);
+      @include padding(null null 20px null);
     }
 
     button {
