@@ -1,4 +1,4 @@
-$visual_grid: true;
+$visual_grid: false;
 
 @import "bourbon/bourbon";
 @import "neat/neat";
@@ -7,7 +7,6 @@ $visual_grid: true;
 
 @include font-face(Six Caps, 'http://fonts.googleapis.com/css?family=Six+Caps');
 @include font-face(Open Sans, 'http://fonts.googleapis.com/css?family=Open+Sans:300');
-
 
 .container {
   @include outer-container;
@@ -20,7 +19,7 @@ $visual_grid: true;
     @include shift(4);
   }
 
-  .text-button {
+  .text-buttons {
     @include outer-container;
     @include span-columns(12);
 
@@ -34,6 +33,7 @@ $visual_grid: true;
     button {
       @include shift(5);
       @include span-columns(2);
+
     }
   }
 
