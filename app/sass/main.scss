@@ -34,19 +34,17 @@ $visual_grid: true;
 
   .text-buttons {
     @include outer-container;
-    @include span-columns(12);
-
-    button {
-      @include span-columns(1.5);
+    @include span-columns(7);
+    @include shift(2.5);
 
       .button1 {
-        @include shift(7);
+        @include omega();
+
       }
 
       .button2 {
-        @include shift(4);
+        @include omega();
       }
-    }
   }
 
 
