@@ -8,7 +8,12 @@ var evervoice = angular
 
 evervoice.controller('myCtrl', ['$scope', 'voiceRecord', 'everNote', function($scope, voiceRecord, everNote) {
 
+// Dictate Button
 
+  $scope.dictate = function() {
+    voiceRecord.start();
+
+  };
 
 
 
@@ -18,42 +23,44 @@ evervoice.controller('myCtrl', ['$scope', 'voiceRecord', 'everNote', function($s
 evervoice.service('voiceRecord',['$scope', function($scope) {
   return {
 
-    $scope.startRecognition = function(){
+    start: startRecognition = function () {
 
-    var recognition = new webkitSpeechRecognition();
-    $scope.recognizing = true;
-    recognition.lang = ['English', ['en-US', 'United States']];
-    recognition.continuous = true;
-    recognition.interimResults = true;
+      var recognition = new webkitSpeechRecognition();
+      $scope.recognizing = true;
+      recognition.lang = ['English', ['en-US', 'United States']];
+      recognition.continuous = true;
+      recognition.interimResults = true;
 
-    recognition.onstart = function(e){
-      console.log('Recognizing speech...');
-    };
+      recognition.onstart = function (e) {
+        console.log('Recognizing speech...');
+      };
 
-    recognition.onspeechend = function(e){
-      console.log('Speech processed.');
-      $scope.recognizing = false;
-    };
+      recognition.onspeechend = function (e) {
+        console.log('Speech processed.');
+        $scope.recognizing = false;
+      };
 
-    recognition.onresult = function(e){
-      var interimTranscript = '';
-      for (var i = e.resultIndex; i < e.results.length; i++) {
-        $scope.interimTranscript = e.results[i][0].transcript;
-        console.log('Transcript: ', $scope.interimTranscript);
-      }
-      $scope.$apply(interimTranscript);
-    };
-    recognition.start();
-   }
+      recognition.onresult = function (e) {
+        var interimTranscript = '';
+        for (var i = e.resultIndex; i < e.results.length; i++) {
+          $scope.interimTranscript = e.results[i][0].transcript;
+          console.log('Transcript: ', $scope.interimTranscript);
+        }
+        $scope.$apply(interimTranscript);
+      };
+      recognition.start();
+    }
   }
+
 }]);
 
 evervoice.directive('everNote', ['$scope',
   function($scope) {
     return {
       restrict: 'E',
-      scope: {'='},
-      link: function (scope, el, attr) {
+      scope: 'ngModel',
+      link: function (scope, element, attrs) {
+
 
         fs = require('fs');
         crypto = require('crypto');
@@ -73,9 +80,9 @@ evervoice.directive('everNote', ['$scope',
 // purpose of exploring the API, you can get a developer token that allows
 // you to access your own Evernote account. To get a developer token, visit
 // https://sandbox.evernote.com/api/DeveloperToken.action
-        var authToken = "S=s1:U=8fc08:E=150f705d998:C=1499f54acd8:P=1cd:A=en-devtoken:V=2:H=795b33c3ea149d44dd7189f16a6d35cd";
+        var authToken = "S=s1:U=8fc08:E=150fd92b8ef:C=149a5e18a30:P=1cd:A=en-devtoken:V=2:H=51eeb29766f5d730fc18c7e1782f8ce5";
 
-        if (authToken == "S=s1:U=8fc08:E=150f705d998:C=1499f54acd8:P=1cd:A=en-devtoken:V=2:H=795b33c3ea149d44dd7189f16a6d35cd") {
+        if (authToken == "S=s1:U=8fc08:E=150fd92b8ef:C=149a5e18a30:P=1cd:A=en-devtoken:V=2:H=51eeb29766f5d730fc18c7e1782f8ce5") {
           console.log("Please fill in your developer token");
           console.log("To get a developer token, visit https://sandbox.evernote.com/api/DeveloperToken.action");
           process.exit(1);
@@ -93,7 +100,7 @@ evervoice.directive('everNote', ['$scope',
           "Evernote EDAMTest (Node.js)",
           Evernote.EDAM_VERSION_MAJOR,
           Evernote.EDAM_VERSION_MINOR,
-          function(err, versionOk) {
+          function (err, versionOk) {
             console.log("Is my Evernote API version up to date? " + versionOk);
             console.log();
             if (!versionOk) {
@@ -105,7 +112,7 @@ evervoice.directive('everNote', ['$scope',
         var noteStore = client.getNoteStore();
 
 // List all of the notebooks in the user's account
-        var notebooks = noteStore.listNotebooks(function(err, notebooks) {
+        var notebooks = noteStore.listNotebooks(function (err, notebooks) {
           console.log("Found " + notebooks.length + " notebooks:");
           for (var i in notebooks) {
             console.log("  * " + notebooks[i].name);
@@ -117,31 +124,6 @@ evervoice.directive('everNote', ['$scope',
         var note = new Evernote.Note();
         note.title = "Test note from EDAMTest.js";
 
-// To include an attachment such as an image in a note, first create a Resource
-// for the attachment. At a minimum, the Resource contains the binary attachment
-// data, an MD5 hash of the binary data, and the attachment MIME type.
-// It can also include attributes such as filename and location.
-        var image = fs.readFileSync('enlogo.png');
-        var hash = image.toString('base64');
-
-        var data = new Evernote.Data();
-        data.size = image.length;
-        data.bodyHash = hash;
-        data.body = image;
-
-        resource = new Evernote.Resource();
-        resource.mime = 'image/png';
-        resource.data = data;
-
-// Now, add the new Resource to the note's list of resources
-        note.resources = [resource];
-
-// To display the Resource as part of the note's content, include an <en-media>
-// tag in the note's ENML content. The en-media tag identifies the corresponding
-// Resource using the MD5 hash.
-        var md5 = crypto.createHash('md5');
-        md5.update(image);
-        hashHex = md5.digest('hex');
 
 // The content of an Evernote note is represented using Evernote Markup Language
 // (ENML). The full ENML specification can be found in the Evernote API Overview
@@ -149,19 +131,19 @@ evervoice.directive('everNote', ['$scope',
         note.content = '<?xml version="1.0" encoding="UTF-8"?>';
         note.content += '<!DOCTYPE en-note SYSTEM "http://xml.evernote.com/pub/enml2.dtd">';
         note.content += '<en-note>Here is the Evernote logo:<br/>';
-        note.content += '<en-media type="image/png" hash="' + hashHex + '"/>';
         note.content += '</en-note>';
 
 // Finally, send the new note to Evernote using the createNote method
 // The new Note object that is returned will contain server-generated
 // attributes such as the new note's unique GUID.
-        noteStore.createNote(note, function(err, createdNote) {
+        noteStore.createNote(note, function (err, createdNote) {
           console.log();
           console.log("Creating a new note in the default notebook");
           console.log();
           console.log("Successfully created a new note with GUID: " + createdNote.guid);
         });
-
+      }
+    }
 }]);
 
 
