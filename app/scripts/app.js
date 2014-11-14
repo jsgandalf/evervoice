@@ -1,19 +1,15 @@
 
 var evervoice = angular
-  .module('evervoiceApp', ['restangular']);
-
-
-evervoice.config(function(RestangularProvider) {
-
-  RestangularProvider.setBaseUrl()
-
-});
+  .module('evervoiceApp', ['firebase']);
 
 
 
-evervoice.controller('myCtrl', ['$scope', 'voiceRecord', function($scope, voiceRecord) {
 
-// Text Box
+
+
+evervoice.controller('myCtrl', ['$scope', 'voiceRecord', '$firebase', function($scope, voiceRecord, $firebase) {
+
+/////////////////// Text Box ////////////////////
 
   voiceRecord.setListener(function(value) {
     $scope.$apply(function() {
@@ -22,18 +18,33 @@ evervoice.controller('myCtrl', ['$scope', 'voiceRecord', function($scope, voiceR
       });
     });
 
-// Dictate Button
+//////////////////// Dictate Button ////////////////////
 
   $scope.dictate = function() {
     voiceRecord.startRecognition();
   };
 
-// Evernote Button
+/////////////////// Evernote Button ////////////////////
 
+  var ref = new Firebase('https://evervoice.firebaseio.com/');
+  var sync = $firebase(ref);
 
+// Place note in an array
+  $scope.note = sync.$asArray();
 
+ // Adding note to database
+
+  $scope.addNote = function() {
+    $scope.note.$add({
+      note: $scope.interimTranscript
+    });
+
+  };
 
 }]);
+
+
+
 
 evervoice.service('voiceRecord', function() {
 
@@ -77,10 +88,5 @@ evervoice.service('voiceRecord', function() {
 
 });
 
-evernote.factory('mongoNote', function($http) {
-  return {
 
-  }
-
-});
 
