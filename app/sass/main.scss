@@ -1,53 +1,57 @@
-$visual_grid: true;
+$visual-grid: false;
 
 @import "bourbon/bourbon";
 @import "neat/neat";
 @import "base/base";
 
 
-@include font-face(Six Caps, 'http://fonts.googleapis.com/css?family=Six+Caps');
-@include font-face(Open Sans, 'http://fonts.googleapis.com/css?family=Open+Sans:300');
+@include font-face(Open Sans, 'http://fonts.googleapis.com/css?family=Open+Sans');
 
-.container {
-  @include outer-container;
-  font-family: 'Open Sans', sans-serif;
-
-  .p1 {
-    text-align: center;
-    @include padding(30px null 30px null);
-    @include span-columns(4);
-    @include shift(4);
-  }
-
-  .textarea {
-    @include outer-container;
-    @include span-columns(12);
-
-    .speech-box {
-      border: 1px solid green;
-      @include size(auto 120px);
-      @include span-columns(7);
-      @include shift(2.5);
-      @include padding(null null 20px null);
-    }
-  }
-
-  .text-buttons {
-    @include outer-container;
-    @include span-columns(7);
-    @include shift(2.5);
-
-      .button1 {
-        @include omega();
-      }
-
-      .button2 {
-        @include omega();
-      }
-  }
+.top-bar{
+  background-color: #333333;
 
 
 }
+
+.textarea1 {
+  @include outer-container;
+  font-family: 'Nixie One', cursive;
+  text-align: center;
+  font-size: 4em;
+  @include padding(30px null 30px null);
+
+}
+
+.textarea2 {
+  @include outer-container;
+  font-family: 'Open Sans', sans-serif;
+
+
+  .speech-box {
+    border: 1px solid green;
+    @include size(auto 200px);
+    @include span-columns(7);
+    @include shift(2.5);
+    @include padding(null null 50px null);
+
+  }
+
+  .text-buttons {
+    @include span-columns(7);
+    @include shift(2.5);
+
+    .button1 {
+      @include omega();
+    }
+
+    .button2 {
+      @include omega();
+    }
+  }
+}
+
+
+
 
 
 

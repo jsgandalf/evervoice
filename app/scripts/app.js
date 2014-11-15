@@ -32,10 +32,10 @@ evervoice.controller('myCtrl', ['$scope', 'voiceRecord', '$firebase', function($
 
   $scope.addNote = function() {
     $scope.note.$add({
-      note: $scope.interimTranscript,
-
+      note: $scope.interimTranscript
     });
   };
+
 
 }]);
 
