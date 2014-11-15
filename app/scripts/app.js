@@ -2,15 +2,11 @@
 var evervoice = angular
   .module('evervoiceApp', ['firebase']);
 
-
-
-
-
-
 evervoice.controller('myCtrl', ['$scope', 'voiceRecord', '$firebase', function($scope, voiceRecord, $firebase) {
 
 /////////////////// Text Box ////////////////////
 
+  // Listener Pattern
   voiceRecord.setListener(function(value) {
     $scope.$apply(function() {
       $scope.interimTranscript = value;
@@ -36,14 +32,12 @@ evervoice.controller('myCtrl', ['$scope', 'voiceRecord', '$firebase', function($
 
   $scope.addNote = function() {
     $scope.note.$add({
-      note: $scope.interimTranscript
-    });
+      note: $scope.interimTranscript,
 
+    });
   };
 
 }]);
-
-
 
 
 evervoice.service('voiceRecord', function() {
