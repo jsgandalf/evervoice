@@ -7,11 +7,7 @@ $visual-grid: false;
 
 @include font-face(Open Sans, 'http://fonts.googleapis.com/css?family=Open+Sans');
 
-.top-bar{
-  background-color: #333333;
 
-
-}
 
 .textarea1 {
   @include outer-container;
@@ -24,8 +20,6 @@ $visual-grid: false;
 
 .textarea2 {
   @include outer-container;
-  font-family: 'Open Sans', sans-serif;
-
 
   .speech-box {
     border: 1px solid green;
@@ -39,14 +33,25 @@ $visual-grid: false;
   .text-buttons {
     @include span-columns(7);
     @include shift(2.5);
+    text-align: center;
+
 
     .button1 {
       @include omega();
+      margin-right: 10px;
     }
 
     .button2 {
       @include omega();
     }
+  }
+  .sub-message {
+    font-family: 'Nixie One', cursive;
+    font-size: 1.5em;
+    text-align: center;
+    @include padding(20px null 20px null);
+    @include span-columns(7);
+    @include shift(2.5);
   }
 }
 

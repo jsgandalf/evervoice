@@ -241,9 +241,6 @@ input[type="submit"] {
   font-style: normal;
   src: url("http://fonts.googleapis.com/css?family=Open+Sans.eot");
   src: url("http://fonts.googleapis.com/css?family=Open+Sans.eot?#iefix") format("embedded-opentype"), url("http://fonts.googleapis.com/css?family=Open+Sans.woff") format("woff"), url("http://fonts.googleapis.com/css?family=Open+Sans.ttf") format("truetype"), url("http://fonts.googleapis.com/css?family=Open+Sans.svg#Open Sans") format("svg"); }
-.top-bar {
-  background-color: #333333; }
-
 .textarea1 {
   max-width: 68em;
   margin-left: auto;
@@ -261,8 +258,7 @@ input[type="submit"] {
 .textarea2 {
   max-width: 68em;
   margin-left: auto;
-  margin-right: auto;
-  font-family: 'Open Sans', sans-serif; }
+  margin-right: auto; }
   .textarea2:after {
     content: "";
     display: table;
@@ -284,12 +280,27 @@ input[type="submit"] {
     display: block;
     margin-right: 2.35765%;
     width: 57.35098%;
-    margin-left: 21.32451%; }
+    margin-left: 21.32451%;
+    text-align: center; }
     .textarea2 .text-buttons:last-child {
       margin-right: 0; }
     .textarea2 .text-buttons .button1 {
-      margin-right: 0; }
+      margin-right: 0;
+      margin-right: 10px; }
     .textarea2 .text-buttons .button2 {
+      margin-right: 0; }
+  .textarea2 .sub-message {
+    font-family: 'Nixie One', cursive;
+    font-size: 1.5em;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 57.35098%;
+    margin-left: 21.32451%; }
+    .textarea2 .sub-message:last-child {
       margin-right: 0; }
 
 /*# sourceMappingURL=main.css.map */
