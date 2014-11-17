@@ -14,8 +14,14 @@ $visual-grid: false;
   font-family: 'Nixie One', cursive;
   text-align: center;
   font-size: 4em;
+  color: green;
   @include padding(30px null 30px null);
 
+
+}
+
+textarea {
+  font-family: 'Nixie One', cursive;
 }
 
 .textarea2 {
@@ -37,15 +43,21 @@ $visual-grid: false;
 
 
     .button1 {
+      font-family: 'Nixie One', cursive;
       @include omega();
+      color: green;
       margin-right: 10px;
+      background-color: white;
     }
 
     .button2 {
+      font-family: 'Nixie One', cursive;
       @include omega();
+      color: green;
+      background-color: white;
     }
   }
-  .sub-message {
+  .subtext {
     font-family: 'Nixie One', cursive;
     font-size: 1.5em;
     text-align: center;

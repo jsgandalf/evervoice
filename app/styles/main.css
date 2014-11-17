@@ -248,12 +248,16 @@ input[type="submit"] {
   font-family: 'Nixie One', cursive;
   text-align: center;
   font-size: 4em;
+  color: green;
   padding-top: 30px;
   padding-bottom: 30px; }
   .textarea1:after {
     content: "";
     display: table;
     clear: both; }
+
+textarea {
+  font-family: 'Nixie One', cursive; }
 
 .textarea2 {
   max-width: 68em;
@@ -285,11 +289,17 @@ input[type="submit"] {
     .textarea2 .text-buttons:last-child {
       margin-right: 0; }
     .textarea2 .text-buttons .button1 {
+      font-family: 'Nixie One', cursive;
       margin-right: 0;
-      margin-right: 10px; }
+      color: green;
+      margin-right: 10px;
+      background-color: white; }
     .textarea2 .text-buttons .button2 {
-      margin-right: 0; }
-  .textarea2 .sub-message {
+      font-family: 'Nixie One', cursive;
+      margin-right: 0;
+      color: green;
+      background-color: white; }
+  .textarea2 .subtext {
     font-family: 'Nixie One', cursive;
     font-size: 1.5em;
     text-align: center;
@@ -300,7 +310,7 @@ input[type="submit"] {
     margin-right: 2.35765%;
     width: 57.35098%;
     margin-left: 21.32451%; }
-    .textarea2 .sub-message:last-child {
+    .textarea2 .subtext:last-child {
       margin-right: 0; }
 
 /*# sourceMappingURL=main.css.map */
