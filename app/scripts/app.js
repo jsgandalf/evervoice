@@ -29,13 +29,11 @@ evervoice.controller('myCtrl', ['$scope', 'voiceRecord', '$firebase', function($
   $scope.note = sync.$asArray();
 
  // Adding note to database
-
   $scope.addNote = function() {
     $scope.note.$add({
       note: $scope.interimTranscript
     });
   };
-
 
 }]);
 
